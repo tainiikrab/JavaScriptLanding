@@ -289,6 +289,7 @@ section {
 }
 
 .accordion-head {
+  margin-top: 30px;
   cursor: pointer;
   -webkit-user-select: none;
      -moz-user-select: none;
@@ -302,7 +303,7 @@ section {
   color: #a4a4a4;
 }
 
-.accordion-head.active-style {
+.active-style {
   color: #FD695A;
   font-weight: 700;
   text-decoration: none;
@@ -320,7 +321,6 @@ section {
   -webkit-box-shadow: 1px 1px 10px #CCCCCC;
           box-shadow: 1px 1px 10px #CCCCCC;
   padding: 25px;
-  max-width: 80vw;
 }
 
 .accordion-block_active {
@@ -880,7 +880,11 @@ section {
   .client {
     margin-left: auto;
   }
-  .footer {
+  .footer__l {
+    margin: 0 auto;
+    font-size: 15px;
+  }
+  .footer__r {
     display: none;
   }
   #thinker {
