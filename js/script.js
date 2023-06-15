@@ -1,8 +1,8 @@
-const hamb = document.querySelector("#hamb");
+const hmenu = document.querySelector("#hmenu");
 const popup = document.querySelector("#popup");
 const menu = document.querySelector("#menu").cloneNode(true);
 
-hamb.onclick = function () {
+hmenu.onclick = function () {
     popup.classList.toggle('open');
     popup.appendChild(menu);
 }
@@ -10,7 +10,7 @@ hamb.onclick = function () {
 
 const modal = document.getElementById("modal");
 const btn = document.getElementById("open");
-const closeBtn = document.querySelector(".modal__close");
+const clbtn = document.querySelector(".modal__close");
 
 btn.onclick = function() {
     modal.classList.add("modal_active");
@@ -18,7 +18,7 @@ btn.onclick = function() {
     function closeModal() {
         modal.classList.remove("modal_active");
 
-        closeBtn.removeEventListener("click", closeModal);
+        clbtn.removeEventListener("click", closeModal);
         modal.removeEventListener("click", hideModal);
     }
 
@@ -26,7 +26,7 @@ btn.onclick = function() {
         if (e.target === modal) closeModal();
     }
 
-    closeBtn.onclick = closeModal;
+    clbtn.onclick = closeModal;
     modal.onclick = hideModal;
 }
 
@@ -89,51 +89,60 @@ dotsWrap.addEventListener("click", (event) => {
 
 
 
-let tab = document.querySelectorAll(".info-header-tab"),
-info = document.querySelector(".info-header"),
-tabContect = document.querySelectorAll(".info-tabcontent");
+let htab = document.querySelectorAll(".info-header-tab"),
+hinfo = document.querySelector(".info-header"),
+tabc = document.querySelectorAll(".info-tabcontent");
   
-  function hideTabContect(a) {
-	for (let i = a; i < tabContect.length; i++) {
-	  tabContect[i].classList.remove("show");
-	  tabContect[i].classList.add("hide");
+  function hide(a) {
+	for (let i = a; i < tabc.length; i++) {
+	  tabc[i].classList.remove("show");
+	  tabc[i].classList.add("hide");
 	}
   }
   
-  hideTabContect(1);
+  hide(1);
   
-  function ShowTabContect(b) {
-	if (tabContect[b].classList.contains("hide")) {
-	  tabContect[b].classList.remove("hide");
-	  tabContect[b].classList.add("show");
+  function show(b) {
+	if (tabc[b].classList.contains("hide")) {
+	  tabc[b].classList.remove("hide");
+	  tabc[b].classList.add("show");
 	}
   }
   
-  info.onclick = function(event) {
+  hinfo.onclick = function(event) {
 	let target = event.target;
 	if (target && target.classList.contains("info-header-tab")) {
-		if (target == tab[4]) {
-		hideTabContect(0);
-		tab.forEach((item) => {
+		if (target == htab[4]) {
+		hide(0);
+		htab.forEach((item) => {
 		  item.classList.remove("active");
 		});
 		target.classList.add("active");
   
 		for (let i = 0; i < 4; i++) {
-		  ShowTabContect(i);
+		  show(i);
 		}
 	  } else {
-		for (let i = 0; i < tab.length; i++) {
-		  if (target == tab[i]) {
-			hideTabContect(0);
-			tab.forEach((item) => {
+		for (let i = 0; i < htab.length; i++) {
+		  if (target == htab[i]) {
+			hide(0);
+			htab.forEach((item) => {
 			  item.classList.remove("active");
 			});
 			target.classList.add("active");
-			ShowTabContect(i);
+			show(i);
 			break;
 		  }
 		}
 	  }
 	}
   };
+
+let btns = document.querySelectorAll(".accordion-head");
+let blocks = document.querySelectorAll(".accordion-block");
+
+// console.log(blocks);
+
+function accordion_toggle(i){
+  blocks[i].classList.toggle("accordion-block_active");
+}
