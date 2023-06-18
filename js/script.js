@@ -145,4 +145,6 @@ let blocks = document.querySelectorAll(".accordion-block");
 
 function accordion_toggle(i){
   blocks[i].classList.toggle("accordion-block_active");
+  btns[i].classList.toggle("active-style");
+  
 }
